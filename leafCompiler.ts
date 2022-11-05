@@ -142,8 +142,8 @@ export class Leaf {
 
         Deno.writeFileSync(tempFilePath, encoder.encode(fakeFileSystemString), { append: true });
 
-        const bundleCode = (await Deno.emit(moduleToUse, { bundle: "module" })).files["deno:///bundle.js"];
-        Deno.writeFileSync(tempFilePath, encoder.encode(bundleCode), { append: true });
+        const bundleCode = await bundle(moduleToUse);
+        Deno.writeFileSync(tempFilePath, encoder.encode(bundleCode.code), { append: true });
 
         let cmd = ["deno", "compile"];
 
