@@ -1,6 +1,7 @@
 import { walkSync } from "https://deno.land/std@0.85.0/fs/mod.ts";
 import { fileSystemExecutable, fileSystemPropertyName } from "./constants.ts";
 import { MEM_METHODS } from "./functions/methods.ts";
+import { bundle } from "https://deno.land/x/emit/mod.ts";
 
 type FileStorageNumbers = { [path: string]: Array<number> };
 type FileStorageTypedArray = { [path: string]: Uint8Array };
